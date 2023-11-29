@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AssociationController;
@@ -36,3 +37,10 @@ Route::Post('register/ajouterassociation',[AssociationController::class,'store']
 Route::get('/loginassociation',[LoginAssociationController::class,'index']);
 Route::get('/login/association',[LoginAssociationController::class,'create']);
 Route::Post('/login/connexionassociation',[LoginAssociationController::class, 'store']);
+
+Route::get('/newevenement', [EvenementController::class, 'create']);
+Route::post('/addevenement', [EvenementController::class, 'store']);
+
+Route::get('/evenements/listeevenements', [EvenementController::class, 'index']);
+
+Route::get('/evenements/{id}',[EvenementController::class,'shows']);

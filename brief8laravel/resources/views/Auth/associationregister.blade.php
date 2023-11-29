@@ -66,7 +66,7 @@
                 <input id="confirm_password" class="form-control" type="password" name="confirm_password">
             </div>
         </div>
-    </div>
+    </div><br>
 
     <div>
         <button class="btn btn-primary">Register</button>
@@ -75,7 +75,7 @@
 
 <br>
 
-<span>Vous avez déjà un compte ? <a href="/login">Connectez-vous ici</a>.</span>
+<span>Vous avez déjà un compte ? <a href="/loginassociation">Connectez-vous ici</a>.</span>
 
 </div>
 @endsection()

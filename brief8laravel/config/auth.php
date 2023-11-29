@@ -17,7 +17,7 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
-
+   
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -35,12 +35,19 @@ return [
     |
     */
 
-    'guards' => [
+    'guards'=> [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'assocation' => [
+            'driver' => 'session',
+            'provider' => 'assocations',
+        ],
+       
     ],
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -64,13 +71,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'assocations' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Assocation::class,
+        ],
+       
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
     ],
-
+   
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
@@ -97,8 +109,14 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'assocations' => [
+            'provider' => 'assocations',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
     ],
-
+   
     /*
     |--------------------------------------------------------------------------
     | Password Confirmation Timeout

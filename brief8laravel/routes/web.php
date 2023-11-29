@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\AssociationController;
+use App\Http\Controllers\Auth\LoginAssociationController;
 
 
 /*
@@ -31,3 +32,7 @@ Route::Post('/login/connexionuser',[LoginController::class, 'store']);
 Route::get('/associationregister',[AssociationController::class,'index'])->name('assregister');
 Route::get('register/association',[AssociationController::class,'create']);
 Route::Post('register/ajouterassociation',[AssociationController::class,'store']);
+
+Route::get('/loginassociation',[LoginAssociationController::class,'index']);
+Route::get('/login/association',[LoginAssociationController::class,'create']);
+Route::Post('/login/connexionassociation',[LoginAssociationController::class, 'store']);

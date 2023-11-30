@@ -17,10 +17,9 @@ class Reservation extends Model
         return $this->hasmany(User::class);
     }
     protected $fillable = [
-        'reference',
-        'date_reservation',
-        'statut',
         'nombre_place',
+        'user_id',
+        'evenement_id',
        
        
 

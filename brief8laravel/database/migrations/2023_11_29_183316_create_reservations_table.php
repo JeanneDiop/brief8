@@ -15,9 +15,6 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->integer('reference');
-            $table->date('date_reservation');
-            $table->enum('statut',['accepte','refuse']);
             $table->integer('nombre_place');
             $table->foreignIdFor(Evenement::class)->constrained()->onDelete('cascade');
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');

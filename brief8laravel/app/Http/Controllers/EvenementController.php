@@ -82,6 +82,15 @@ class EvenementController extends Controller
         return view('evenements.voirplus', ['evenement' => $evenement]);
     }
 
+   
+    public function show(Request $request )
+    
+    {
+       
+        $evenement= Evenement::find($request->id);
+        return view('reservations.ajouterreservation', ['evenement' => $evenement]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -12,24 +13,46 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+       
+        return view('reservations.ajouterreservation');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('reservations.ajouterreservation');
     }
+   
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+
+        {
+        
+      
+    
+            $request->validate([
+                'nombre_place' => 'required',
+               
+              
+                
+            ]);
+           
+            $reservation = new Reservation();
+            // $this->authorize('create', $reservation);
+        
+            $reservation->nombre_place = $request->nombre_place;
+            $reservation->user_id=Auth::guard('web')->user()->id;
+            $reservation->evenement_id=$request->evenement_id;
+            $reservation->save();
+            return redirect('/newreservation')->with('status', "reservation bien enregistré");
+        
+    
     }
+    
 
     /**
      * Display the specified resource.

@@ -44,7 +44,7 @@
             </div>
         </div>
         <label class="form-label ">statut</label>
-        <div class="input-group input-group-outline my-3">
+        <div class="input-group input-group-outline my-3 ">
             <select style="width: 500px;" name="statut" class="pe-2 btn btn-sm btn-outline-primary "
                 aria-label="Default select example">
                 <option selected>statut</option>

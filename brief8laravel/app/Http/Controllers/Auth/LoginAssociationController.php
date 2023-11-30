@@ -26,8 +26,9 @@ Public function store(Request $request)
          if (Auth::guard('assocation')->attempt($credentials)) {
         //    $request->session()->regenerate();
            return redirect()-> back()->with('status','connexion reussi');
- 
-      
+        }
+        else{
+            return 'erreur';
         }
 }
 

@@ -42,5 +42,9 @@ Route::get('/newevenement', [EvenementController::class, 'create']);
 Route::post('/addevenement', [EvenementController::class, 'store']);
 
 Route::get('/evenements/listeevenements', [EvenementController::class, 'index']);
-
 Route::get('/evenements/{id}',[EvenementController::class,'shows']);
+
+Route::get('/evenement/modifier/{id}',[EvenementController::class,'edit']);
+Route::post('/evenements/modifierevenement/{id}',[EvenementController::class,'update']);
+
+Route::get('/evenements/deleteevenement/{id}', [EvenementController::class, 'destroy']);

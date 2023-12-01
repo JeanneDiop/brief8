@@ -30,9 +30,35 @@ d-flex justify-content-center align-items-center"src="{{ asset('images/' . $even
     <li class="list-group-item">{{$evenement->date_evenement}}</li>
   </ul>
   <div class="card-body">
-    <a href="{{ '/evenement/modifier/' . $evenement->id }}" class="card-link">Modifier</a>
+    <a href="{{ '/evenement/modifier/' . $evenement->id }}" class="card-link">Modifier</a><br>
     <a href="/evenements/deleteevenement/{{ $evenement->id }}" class="card-link">Supprimer</a>
   </div>
 </div>
 </div>
+<table class="table table-bordered">
+  <thead>
+    <tr><th colspan="4" style="text-align:center; font-size:25px">Listes de reservation</tr></th><br>
+    <tr>
+      <th scope="col">Reference</th>
+      <th scope="col">Nombre de place</th>
+      <th scope="col">Date de reservation</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($reservations as $reservation)
+    <tr class="le">
+      <th scope="row">{{$reservation->reference}}</th>
+      <td>{{$reservation->nombre_place}}</td>
+      <td>{{$reservation->created_at}}</td>
+      @if ($reservation->statut===1)
+      <td><a href="/reservations/{{$reservation->id}}" class="btn btn-warning">decliner</a></td>  
+      @else
+      <td>dejà decliner</td>  
+      @endif
+     
+    </tr>
+    @endforeach
+  </tbody>
+</table>
 @endsection

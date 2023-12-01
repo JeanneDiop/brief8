@@ -9,7 +9,7 @@
 @endif
 <div>
     <h1>Ajouter reservation</h1>
-    <form action="/addreservation" method="post" enctype="multipart/form-data">
+    <form action="/addreservation" method="post" >
       @csrf
         <div class="form-group">
             <div class="row">
@@ -23,7 +23,7 @@
         <div>
           <button class="btn btn-primary">Ajouter</button>
         </div>
-        
+  
       </form>
       <br>
   </div>

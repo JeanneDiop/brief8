@@ -26,6 +26,7 @@
           </ul>
           <div class="card-body">
             <a href="/evenements/{{$evenement->id}}" class="btn btn-warning">voir plus</a>
+
             <form action="/newreservation" method="post">
               @csrf
               <input type="hidden" value="{{$evenement->id}}" name="id">

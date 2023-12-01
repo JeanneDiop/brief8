@@ -53,5 +53,5 @@ Route::get('/evenements/deleteevenement/{id}', [EvenementController::class, 'des
 Route::post('/newreservation', [EvenementController::class, 'show']);
 Route::post('/addreservation', [ReservationController::class, 'store']);
 
-Route::get('/evenements/listeevenements', [EvenementController::class, 'index']);
-Route::get('/evenements/{id}',[EvenementController::class,'shows']);
+Route::get('/reservations/listereservations', [ReservationController::class, 'index']);
+Route::get('/reservations/{id}',[ReservationController::class,'destroy']);

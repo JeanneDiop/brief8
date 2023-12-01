@@ -24,4 +24,7 @@ class Evenement extends Model
        
 
     ];
+    public function reservation(){
+        return $this->hasmany(Reservation::class);
+    }
 }

@@ -31,35 +31,41 @@ class ReservationController extends Controller
     public function store(Request $request)
 
         {
-        
-      
-    
-            $request->validate([
-                'nombre_place' => 'required',
-               
-              
+            
+            
+             $request->validate([
+                    'nombre_place' => 'required',
+                  
                 
-            ]);
-           
-            $reservation = new Reservation();
-            // $this->authorize('create', $reservation);
-        
-            $reservation->nombre_place = $request->nombre_place;
-            $reservation->user_id=Auth::guard('web')->user()->id;
-            $reservation->evenement_id=$request->evenement_id;
+                
+                
+                 ]);
+                
+                
+                
+                $reservation = new Reservation();
+                
+                // $this->authorize('create', $reservation);
+                $ref= uniqid();
+                $reservation->reference=$ref;
+            
+                $reservation->nombre_place = $request->nombre_place;
+                $reservation->user_id=Auth::guard('web')->user()->id;
+                $reservation->evenement_id=$request->evenement_id;
+                
             $reservation->save();
             return redirect('/newreservation')->with('status', "reservation bien enregistré");
         
-    
     }
     
 
     /**
      * Display the specified resource.
      */
-    public function show(Reservation $reservation)
+    public function show($id)
     {
-        //
+        $reservation= Reservation::find($id);
+        return view('reservations.voirplus', ['reservation' => $reservation]);
     }
 
     /**
@@ -81,8 +87,11 @@ class ReservationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reservation $reservation)
+    public function destroy(Reservation $reservation,$id)
     {
-        //
+        $reservation = Reservation::findOrfail($id);
+        $reservation->statut=false;
+        $reservation->update();
+        return back();
     }
 }

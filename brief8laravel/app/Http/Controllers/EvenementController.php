@@ -79,10 +79,10 @@ class EvenementController extends Controller
     public function shows($id )
     {
         $evenement= Evenement::find($id);
-        return view('evenements.voirplus', ['evenement' => $evenement]);
+        $reservations = $evenement->reservation()->get();
+        return view('evenements.voirplus', ['evenement' => $evenement, 'reservations'=> $reservations]);
     }
 
-   
     public function show(Request $request )
     
     {

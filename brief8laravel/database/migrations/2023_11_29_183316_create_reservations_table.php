@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
+            $table->string('reference');
             $table->integer('nombre_place');
             $table->foreignIdFor(Evenement::class)->constrained()->onDelete('cascade');
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
             $table->timestamps();
+            $table->boolean('statut')->default(true);
         });
     }
 

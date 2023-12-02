@@ -25,9 +25,9 @@
             <li class="list-group-item">{{$evenement->date_evenement}}</li>
           </ul>
           <div class="card-body">
-            <a href="/evenements/{{$evenement->id}}" class="btn btn-warning">voir plus</a>
+            <a href="/evenements/{{$evenement->id}}" class="btn btn-dark">voir plus</a>
 
-            <form action="/newreservation" method="post">
+            <form action="/newreservation" method="post" class="d-inline-block">
               @csrf
               <input type="hidden" value="{{$evenement->id}}" name="id">
               <button type="submit"  class="btn btn-warning">reserver</button>

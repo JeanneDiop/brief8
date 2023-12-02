@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class EnvoyerMailNouveauReserve extends Notification
+class DeclinerReservation extends Notification
 {
     use Queueable;
 
@@ -35,7 +35,7 @@ class EnvoyerMailNouveauReserve extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-        ->line('Bonjour. Vous venez reserver dans notre evenement ')
+        ->line('Bonjour. nous venons d\'examiner votre reservation ')
         ->line(' Vous pourrez suivre maintenant tous nos publications ')
         ->action('Consulter notre Site Web via ce lien', url('/'))
         ->line('Merci d\'avoir choisi notre site!');

@@ -12,6 +12,9 @@ class Evenement extends Model
     public function assocations(){
         return $this->belongsTo(Assocation::class);
     }
+    public function reservations(){
+        return $this->hasmany(Reservation::class);
+    }
     protected $fillable = [
         'libelle',
         'date_limite_inscription',

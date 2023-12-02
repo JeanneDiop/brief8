@@ -23,21 +23,7 @@ use App\Http\Controllers\Auth\LoginAssociationController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/register',[RegisterController::class,'showRegistrationForm'])->name('register');
-Route::get('/register/user',[RegisterController::class,'create']);
-Route::Post('/register/ajouterinscription',[RegisterController::class,'store']);
-
-Route::get('/login',[LoginController::class,'index']);
-Route::get('/login/connexion',[LoginController::class,'create']);
-Route::Post('/login/connexionuser',[LoginController::class, 'store']);
-
-Route::get('/associationregister',[AssociationController::class,'index'])->name('assregister');
-Route::get('register/association',[AssociationController::class,'create']);
-Route::Post('register/ajouterassociation',[AssociationController::class,'store']);
-
-Route::get('/loginassociation',[LoginAssociationController::class,'index']);
-Route::get('/login/association',[LoginAssociationController::class,'create']);
-Route::Post('/login/connexionassociation',[LoginAssociationController::class, 'store']);
+Route::middleware('auth')->group(function(){
 //ajouter evenement
 Route::get('/newevenement', [EvenementController::class, 'create']);
 Route::post('/addevenement', [EvenementController::class, 'store']);
@@ -55,3 +41,21 @@ Route::post('/addreservation', [ReservationController::class, 'store']);
 
 Route::get('/reservations/listereservations', [ReservationController::class, 'index']);
 Route::get('/reservations/{id}',[ReservationController::class,'destroy']);
+
+});
+Route::get('/register',[RegisterController::class,'showRegistrationForm'])->name('register');
+Route::get('/register/user',[RegisterController::class,'create']);
+Route::Post('/register/ajouterinscription',[RegisterController::class,'store']);
+
+Route::get('/login',[LoginController::class,'index']);
+Route::get('/login/connexion',[LoginController::class,'create']);
+Route::Post('/login/connexionuser',[LoginController::class, 'store']);
+
+
+Route::get('/associationregister',[AssociationController::class,'index'])->name('assregister');
+Route::get('register/association',[AssociationController::class,'create']);
+Route::Post('register/ajouterassociation',[AssociationController::class,'store']);
+
+Route::get('/loginassociation',[LoginAssociationController::class,'index']);
+Route::get('/login/association',[LoginAssociationController::class,'create']);
+Route::Post('/login/connexionassociation',[LoginAssociationController::class, 'store']);

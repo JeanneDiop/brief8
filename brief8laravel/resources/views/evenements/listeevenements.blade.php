@@ -16,13 +16,13 @@
                alt="image de l'article">
           <div class="card-body">
             <h5 class="card-title"></h5>
-            <p class="card-text">{{$evenement->libelle}}</p>
+            <p class="card-text"><b><label for="libelle">libelle:</label></b>   {{$evenement->libelle}}</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{$evenement->date_limite}}</li>
-            <li class="list-group-item">{{$evenement->description}}</li>
-            <li class="list-group-item">{{$evenement->statut}}</li>
-            <li class="list-group-item">{{$evenement->date_evenement}}</li>
+            <li class="list-group-item"><b><label for="libelle">date_limite:</label></b>  {{$evenement->date_limite}}</li>
+            <li class="list-group-item"><b><label for="libelle">description:</label></b>   {{$evenement->description}}</li>
+            <li class="list-group-item"><b><label for="libelle">statut:</label> </b>  {{$evenement->statut}}</li>
+            <li class="list-group-item"><b><label for="libelle">date_evenement:</label></b>   {{$evenement->date_evenement}}</li>
           </ul>
           <div class="card-body">
             <a href="/evenements/{{$evenement->id}}" class="btn btn-dark">voir plus</a>

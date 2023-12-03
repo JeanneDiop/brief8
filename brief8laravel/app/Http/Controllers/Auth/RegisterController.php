@@ -38,7 +38,7 @@ return view('auth.register');
 
        $user = User::create($validated);
     } catch (\Exception $e) {
-        dd($e->getMessage());
+    
     }
     }
         
